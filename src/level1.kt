@@ -1,8 +1,4 @@
-val scan = java.util.Scanner(System.`in`)
-
-
-fun main(args: Array<String>) {
-    val words = scan.nextLine()
+fun main(words: Array<String>) {
     for (word in words)
         println(word)
 }
