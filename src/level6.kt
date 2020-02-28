@@ -1,6 +1,12 @@
-fun main() {
-    val scan = java.util.Scanner(System.`in`)
-    val words = scan.nextLine().split(" ")
+fun main(args: Array<String>) {
+    var words: Array<String>
+    //check emty cmnd args
+    if (args.size == 0) {
+        val scan = java.util.Scanner(System.`in`)
+        words = scan.nextLine().split(" ").toTypedArray()
+    } else {
+        words = args
+    }
 
     val sorted_freq = words.groupingBy {it}
         .eachCount()
