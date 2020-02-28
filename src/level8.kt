@@ -1,5 +1,6 @@
 import java.util.Scanner
 import java.io.File
+import java.io.FileNotFoundException
 import kotlin.system.exitProcess
 
 
@@ -18,7 +19,8 @@ fun main(args: Array<String>) {
                     File(args[1]).readText(Charsets.UTF_8)
                         .split(" ")
                         .toTypedArray()
-                } catch (e: java.io.FileNotFoundException) {
+                } catch (e: FileNotFoundException) {
+                    System.err.println(e)
                     exitProcess(1)
                 }
 
