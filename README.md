@@ -1,2 +1,2 @@
-# kafedra_goodline
-Completed tasks for kafedral lessons in goodline
+# SE-task1
+Completed tasks for SE lessons
