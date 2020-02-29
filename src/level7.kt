@@ -6,7 +6,7 @@ fun main(args: Array<String>) {
     val words: Array<String> = (
         if (args.isEmpty()) {
             Scanner(System.`in`).nextLine()
-                .split("\\p{Punct}+".toRegex())
+                .split("[\\s\\t\\n\\r]+".toRegex())
                 .toTypedArray()
         } else args
     )
@@ -15,8 +15,8 @@ fun main(args: Array<String>) {
     val sorted_freq: List<Pair<String, Int>> = words.groupingBy {it}
             .eachCount()
             .toList()
-            .sortedBy { (key) -> key }
-            .sortedByDescending { (value) -> value }
+            .sortedBy { (key,value) -> key }
+            .sortedByDescending { (key, value) -> value }
 
     for ((k, v) in sorted_freq)
         println("$k $v")
