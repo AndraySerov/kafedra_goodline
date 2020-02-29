@@ -6,10 +6,9 @@ fun main(args: Array<String>) {
     val words: Array<String> = (
         if (args.isEmpty()) {
             Scanner(System.`in`).nextLine()
-                .split(" ")
+                .split("\\p{Punct}+".toRegex())
                 .toTypedArray()
-        }
-        else args
+        } else args
     )
 
 

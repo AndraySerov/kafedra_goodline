@@ -3,7 +3,8 @@ fun main(args: Array<String>) {
     //check emty cmnd args
     if (args.size == 0) {
         val scan = java.util.Scanner(System.`in`)
-        words = scan.nextLine().split(" ").toTypedArray()
+        words = scan.nextLine().split("\\p{Punct}+".toRegex())
+            .toTypedArray()
     } else {
         words = args
     }
