@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-for i in `ls ../src/*.kt`
+# shellcheck disable=SC2045
+for i in $(ls ../src/*.kt)
     do
     filename=$(basename "$i")
     filename="${filename%.*}"
