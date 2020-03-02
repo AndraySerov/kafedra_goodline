@@ -10,14 +10,15 @@ fun main(args: Array<String>) {
 
             if (args.isEmpty()) {
                 Scanner(System.`in`).nextLine()
-                    .split("[\\s\\t\\n\\r]+".toRegex())
+                    .split("[\\t\\n\\r\\s.,'-]+".toRegex())
                     .toTypedArray()
 
             } else if (args[0].equals("-f")) {
 
                 try {
                     File(args[1]).readText(Charsets.UTF_8)
-                        .split("[\\s\\t\\n\\r]+".toRegex())
+                        .trim()
+                        .split("[\\t\\n\\r\\s.,'-]+".toRegex())
                         .toTypedArray()
                 } catch (e: FileNotFoundException) {
                     System.err.println(e)
@@ -25,14 +26,14 @@ fun main(args: Array<String>) {
                 }
 
             } else args
-    )
+            )
 
-    val sorted_freq: List<Pair<String, Int>> = words.groupingBy {it}
+    val sortedFreq: List<Pair<String, Int>> = words.groupingBy {it}
         .eachCount()
         .toList()
-        .sortedBy { (key,value) -> key }
-        .sortedByDescending { (key,value) -> value }
+        .sortedBy { (key, _) -> key }
+        .sortedByDescending { (_,value) -> value }
 
-    for ((k, v) in sorted_freq)
+    for ((k, v) in sortedFreq)
         println("$k $v")
 }

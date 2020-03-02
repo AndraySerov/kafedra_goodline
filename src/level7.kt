@@ -12,12 +12,12 @@ fun main(args: Array<String>) {
     )
 
 
-    val sorted_freq: List<Pair<String, Int>> = words.groupingBy {it}
+    val sortedFreq: List<Pair<String, Int>> = words.groupingBy {it}
             .eachCount()
             .toList()
-            .sortedBy { (key,value) -> key }
-            .sortedByDescending { (key, value) -> value }
+            .sortedBy { (key,_) -> key }
+            .sortedByDescending { (_, value) -> value }
 
-    for ((k, v) in sorted_freq)
+    for ((k, v) in sortedFreq)
         println("$k $v")
 }

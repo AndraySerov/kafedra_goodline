@@ -1,5 +1,5 @@
 fun main(args: Array<String>) {
-    var words: Array<String>
+    val words: Array<String>
     //check emty cmnd args
     if (args.isEmpty()) {
         val scan = java.util.Scanner(System.`in`)
@@ -9,12 +9,12 @@ fun main(args: Array<String>) {
         words = args
     }
 
-    val sorted_freq = words.groupingBy {it}
+    val sortedFreq = words.groupingBy {it}
         .eachCount()
         .toList()
-        .sortedBy { (key,value) -> key }
-        .sortedByDescending { (key,value) -> value }
+        .sortedBy { (key,_) -> key }
+        .sortedByDescending { (_,value) -> value }
 
-    for ((k, v) in sorted_freq)
+    for ((k, v) in sortedFreq)
         println("$k $v")
 }
