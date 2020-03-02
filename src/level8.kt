@@ -3,8 +3,7 @@ import java.io.FileNotFoundException
 import java.util.*
 import kotlin.system.exitProcess
 import kotlin.text.Charsets.UTF_8
-import kotlin.Exception as Exception1
-import kotlin.Pair as Pair1
+import kotlin.Exception
 
 
 fun main(args: Array<String>) {
